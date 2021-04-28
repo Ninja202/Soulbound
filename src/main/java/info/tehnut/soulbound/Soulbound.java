@@ -1,5 +1,6 @@
 package info.tehnut.soulbound;
 
+import info.tehnut.soulbound.EnchantmentTrashSafe;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import info.tehnut.soulbound.api.SoulboundContainer;
@@ -45,6 +46,7 @@ public class Soulbound implements ModInitializer {
     @Override
     public void onInitialize() {
         Registry.register(Registry.ENCHANTMENT, new Identifier("soulbound", "soulbound"), ENCHANT_SOULBOUND);
+        Registry.register(Registry.ENCHANTMENT, new Identifier("soulbound", "trash_safe"), new EnchantmentTrashSafe());
 
         SoulboundContainer.CONTAINERS.put(new Identifier("soulbound", "inv_main"), player -> player.inventory.main);
         SoulboundContainer.CONTAINERS.put(new Identifier("soulbound", "inv_off"), player -> player.inventory.offHand);
